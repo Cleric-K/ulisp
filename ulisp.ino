@@ -2471,7 +2471,7 @@ object *fn_pinmode (object *args, object *env) {
   (void) env;
   int pin = integer(first(args));
   object *mode = second(args);
-  if ((integerp(mode) && mode->integer == 1) || mode != nil) pinMode(pin, OUTPUT);
+  if ((integerp(mode) && mode->integer == 1) || mode == tee) pinMode(pin, OUTPUT);
   else if (integerp(mode) && mode->integer == 2) pinMode(pin, INPUT_PULLUP);
   #if defined(INPUT_PULLDOWN)
   else if (integerp(mode) && mode->integer == 4) pinMode(pin, INPUT_PULLDOWN);
